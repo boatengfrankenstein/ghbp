@@ -1,0 +1,38 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @classified.title %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= number_to_currency(@classified.price,{:unit => "$", :separator => ".", :delimiter => ","}) %>
+</p>
+
+<p>
+  <strong>Location:</strong>
+  <%= @classified.location %>
+</p>
+<%= debug @classified %>
+
+<strong>Category: </strong> <%= link_to @classified.category.name,:controller =>'categories', :action => 'show', :id=>@classified.category.id%><br/> 
+
+<p>
+  <strong>Description:</strong>
+  <%= @classified.description %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @classified.email %>
+</p>
+<p>
+<strong>Date Posted:</strong>
+<%= distance_of_time_in_words_to_now(@classified.created_at) %><br />
+<strong>Last updated:</strong>
+<%= distance_of_time_in_words(@classified.updated_at, Time.now) %></p>
+</p>
+
+<%= link_to 'Edit', edit_classified_url(@classified) %> |
+<%= link_to 'Back', :controller=>'classifieds',:action=>'index' %>
