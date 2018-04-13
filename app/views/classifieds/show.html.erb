@@ -34,5 +34,39 @@
 <%= distance_of_time_in_words(@classified.updated_at, Time.now) %></p>
 </p>
 
+<p>Interested?
+Contact <%= mail_to @classified.email %></p>
+
+
+
+
+<div id="contact_seller" style="display:none;">
+<%= form_with(:url => {:action => 'contact',
+:id => @classified.id },
+:html => {:id => "contact_form"}) -%>
+Your e-mail: <%= text_field "contact", "email" -%><br />
+Message: <br />
+<%= text_area "contact", "message", {:rows => 10} -%><br />
+<%= submit_tag 'Contact seller' -%>
+<%= end_form_tag -%>
+</div>
+
+
+
 <%= link_to 'Edit', edit_classified_url(@classified) %> |
 <%= link_to 'Back', :controller=>'classifieds',:action=>'index' %>
+
+
+<!--
+# Submits title=X&description=Y
+form_with(url: different_path, class: 'something', id: 'specific') do |form|
+  form.text_field :title, 'This has is the value of the title'
+
+  form.text_area :description, class: 'No value has been supplied here'
+
+  form.fields(:permission) do |fields|
+    # on/off instead of positional parameters for setting values
+    fields.check_box :admin, on: 'yes', off: 'no'
+  end
+
+-->

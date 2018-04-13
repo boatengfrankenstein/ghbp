@@ -52,7 +52,6 @@ end
   # POST /classifieds.json
   def create
     @classified = Classified.new(classified_params)
-
     respond_to do |format|
       if @classified.save
         format.html { redirect_to @classified, notice: 'Classified was successfully created.' }
@@ -100,6 +99,15 @@ end
       logger.debug "New post: #{  @category.attributes.inspect}"
       logger.debug "Post should be valid: #{@category.valid?}"
     end
+
+
+    def contact
+      @classified = Classified.find(params[:id])
+      ClassifiedMailer.deliver_contact(@classified,params[:contact])
+      return if request.xhr?
+      render :nothing => true
+      end
+      
     # Never trust parameters from the scary internet, only allow the white list through.
     def classified_params
     params.require(:classified).permit(:title, :price, :location, :description, :email, :category_id)
