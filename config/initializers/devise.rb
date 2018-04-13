@@ -20,6 +20,11 @@ Devise.setup do |config|
   # with default "from" parameter.
   config.mailer_sender = 'please-change-me-at-config-initializers-devise@example.com'
 
+    config.omniauth :google_oauth2, ENV['566882617610-v8sgv2926e2hr2tqj0rmgmd4aivlmr58.apps.googleusercontent.com'], ENV['g_P8GzvHdgfjt2wZHhHfgq-1'], scope: "email,profile,offline", prompt: "consent", setup: true
+    config.omniauth :instagram, ENV['INSTAGRAM_APP_ID'], ENV['INSTAGRAM_APP_SECRET'], setup: true
+    config.omniauth :facebook, ENV['FACEBOOK_APP_ID'], ENV['FACEBOOK_APP_SECRET'], scope: "email", setup: true
+    config.omniauth :twitter, ENV['TWITTER_APP_ID'], ENV['TWITTER_APP_SECRET'] , setup: true
+
   # Configure the class responsible to send e-mails.
   # config.mailer = 'Devise::Mailer'
 
