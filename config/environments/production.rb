@@ -72,7 +72,7 @@ Rails.application.configure do
 
 
   config.log_level = :debug # In any environment initializer, or
-  Rails.logger.level = 0 # at any time
+
   # Send deprecation notices to registered listeners.
   config.active_support.deprecation = :notify
 
