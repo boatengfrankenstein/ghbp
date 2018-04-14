@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 20180413034821) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "categories", force: :cascade do |t|
     t.string "name"
   end
@@ -27,14 +30,8 @@ ActiveRecord::Schema.define(version: 20180413034821) do
     t.integer "category_id"
   end
 
-  create_table "directors", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "identities", force: :cascade do |t|
-    t.integer "user_id"
+    t.bigint "user_id"
     t.string "provider"
     t.string "accesstoken"
     t.string "refreshtoken"
@@ -48,14 +45,6 @@ ActiveRecord::Schema.define(version: 20180413034821) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_identities_on_user_id"
-  end
-
-  create_table "movies", force: :cascade do |t|
-    t.integer "director_id"
-    t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["director_id"], name: "index_movies_on_director_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -75,4 +64,5 @@ ActiveRecord::Schema.define(version: 20180413034821) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "identities", "users"
 end

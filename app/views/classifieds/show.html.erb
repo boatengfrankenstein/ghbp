@@ -40,16 +40,6 @@ Contact <%= mail_to @classified.email %></p>
 
 
 
-<div id="contact_seller" style="display:none;">
-<%= form_with(:url => {:action => 'contact',
-:id => @classified.id },
-:html => {:id => "contact_form"}) -%>
-Your e-mail: <%= text_field "contact", "email" -%><br />
-Message: <br />
-<%= text_area "contact", "message", {:rows => 10} -%><br />
-<%= submit_tag 'Contact seller' -%>
-<%= end_form_tag -%>
-</div>
 
 
 

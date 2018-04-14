@@ -66,6 +66,8 @@ gem 'instagram'
 gem 'omniauth-google-oauth2'
 gem 'google-api-client', '~> 0.7.1'
 gem 'dotenv'
-
+ 
+# Use postgres as the database for Active Record
+gem 'pg'
 
 
