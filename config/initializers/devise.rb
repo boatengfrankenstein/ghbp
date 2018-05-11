@@ -22,7 +22,7 @@ Devise.setup do |config|
 
     config.omniauth :google_oauth2, ENV['566882617610-v8sgv2926e2hr2tqj0rmgmd4aivlmr58.apps.googleusercontent.com'], ENV['g_P8GzvHdgfjt2wZHhHfgq-1'], scope: "email,profile,offline", prompt: "consent", setup: true
     config.omniauth :instagram, ENV['INSTAGRAM_APP_ID'], ENV['INSTAGRAM_APP_SECRET'], setup: true
-    config.omniauth :facebook, ENV['FACEBOOK_APP_ID'], ENV['FACEBOOK_APP_SECRET'], scope: "email", setup: true
+    config.omniauth :facebook, ENV['220245508531481'], ENV['5b8194fcdc5e21e65660d3f93b4f5ce7'], scope: "email", setup: true
     config.omniauth :twitter, ENV['TWITTER_APP_ID'], ENV['TWITTER_APP_SECRET'] , setup: true
 
   # Configure the class responsible to send e-mails.

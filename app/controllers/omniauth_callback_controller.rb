@@ -41,7 +41,7 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
     end
   end
 
-
+  https://saharaclassified.herokuapp.com/users/auth/facebook/callback
 def upgrade
     scope = nil
     if params[:provider] == "google_oauth2"
