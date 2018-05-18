@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   get :contact, controller: :classifieds
   get 'welcome/index'
   root 'welcome#index'
+  get 'auth/:provider/callback', to: 'sessions#create'
  
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callback" }
  
